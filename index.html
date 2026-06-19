@@ -1,575 +1,2334 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saif Abdul Qadeer — Data Science & Business Analysis</title>
+    <meta
+      name="description"
+      content="Saif Abdul Qadeer — Data Science & Business Analysis professional. Data analysis, BI dashboards, and decision-ready insight. Google & Microsoft certified."
+    />
+    <meta name="author" content="Saif Abdul Qadeer" />
+    <meta
+      property="og:title"
+      content="Saif Abdul Qadeer — Data Science & Business Analysis"
+    />
+    <meta
+      property="og:description"
+      content="Turning messy, multi-source data into clean, decision-ready insight."
+    />
+    <meta property="og:type" content="website" />
 
-<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <meta charset="UTF-8">
-    <meta name="google-site-verification" content="K5cwRSdfrYnpdTSI07qOcuZ_HLHyLuhQq-2zXfcD8cE" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>saifportfolio.com</title>
-    <meta name="description" content="Passionate data science student with a specialization in data analysis. 
-        Demonstrated expertise through
-         case studies and web deployment projects. Holder of a Google Data Analyst certificate.">
-    <meta name="keywords" content="saifportfolio, Saifportfolio, SaifPortfolio, Saif, saif, portfolio, Saif Portfolio,Saif portfolio">
-    <meta name="author" content="Saif Abdul Qadeer">
+    <style>
+      /* ============ TOKENS ============ */
+      :root {
+        --ink: #0b1426; /* deep navy ink */
+        --ink-2: #101d38; /* panel navy */
+        --ink-3: #16264a; /* raised navy */
+        --paper: #f5f7fb; /* clean light bg */
+        --paper-2: #ffffff; /* card white */
+        --line: #e1e7f0; /* hairline on light */
+        --line-dark: rgba(255, 255, 255, 0.1);
+        --text: #1a2438; /* body on light */
+        --muted: #5b6b85; /* muted on light */
+        --muted-dark: #9db0ce; /* muted on dark */
+        --teal: #19c3a6; /* data accent */
+        --teal-deep: #0e9c85;
+        --amber: #f4a03f; /* business accent */
+        --amber-deep: #e0852a;
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.saifportfolio.com/">
-    <meta property="og:title" content="saifportfolio">
-    <meta property="og:description" content="Passionate data science student with a specialization in data analysis. 
-        Demonstrated expertise through
-         case studies and web deployment projects. Holder of a Google Data Analyst certificate.">
-    <meta property="og:image" content="images/icon.jpeg">
+        --maxw: 1140px;
+        --r: 16px;
+        --shadow: 0 18px 50px -22px rgba(11, 20, 38, 0.35);
+        --shadow-sm: 0 8px 24px -14px rgba(11, 20, 38, 0.3);
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.saifportfolio.com/">
-    <meta property="twitter:title" content="saifportfolio">
-    <meta property="twitter:description" content="Passionate data science student with a specialization in data analysis. 
-        Demonstrated expertise through
-         case studies and web deployment projects. Holder of a Google Data Analyst certificate.">
-    <meta property="twitter:image" content="images/icon.jpeg">
-    <!-- LinkedIn -->
-<meta property="og:title" content="saifportfolio">
-<meta property="og:description" content="Passionate data science student with a specialization in data analysis. 
-        Demonstrated expertise through
-         case studies and web deployment projects. Holder of a Google Data Analyst certificate.">
-<meta property="og:image" content="images/icon.jpeg">
-<meta property="og:url" content="https://www.saifportfolio.com/">
+        --f-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+        --f-body: "Inter", system-ui, -apple-system, sans-serif;
+        --f-mono: "JetBrains Mono", ui-monospace, "Courier New", monospace;
+      }
 
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--f-body);
+        background: var(--paper);
+        color: var(--text);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      section {
+        position: relative;
+      }
 
-    <!-- Favicon -->
-<link rel="icon" href="images/favicon.jpeg" type="image/jpeg">
+      /* ============ LAYOUT HELPERS ============ */
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+      .block {
+        padding: clamp(72px, 10vw, 128px) 0;
+      }
+      section[id] {
+        scroll-margin-top: 78px;
+      }
 
+      .eyebrow {
+        font-family: var(--f-mono);
+        font-size: 0.74rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--teal-deep);
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 26px;
+        height: 1px;
+        background: var(--teal);
+      }
+      .block.dark .eyebrow {
+        color: var(--teal);
+      }
 
-    <!-- Add additional tags as necessary -->
+      h2.title {
+        font-family: var(--f-display);
+        font-weight: 700;
+        font-size: clamp(1.9rem, 4.6vw, 3rem);
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+        margin: 18px 0 0;
+      }
+      .lead {
+        font-size: clamp(1rem, 2vw, 1.12rem);
+        color: var(--muted);
+        max-width: 60ch;
+        margin-top: 18px;
+      }
+      .block.dark {
+        background: var(--ink);
+        color: #eaf0fb;
+      }
+      .block.dark .lead {
+        color: var(--muted-dark);
+      }
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      /* ============ SCROLL PROGRESS ============ */
+      .progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        transform-origin: 0 50%;
+        transform: scaleX(0);
+        z-index: 200;
+        background: linear-gradient(90deg, var(--teal), var(--amber));
+      }
 
-  <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
+      /* ============ NAV ============ */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 120;
+        transition:
+          background 0.35s ease,
+          box-shadow 0.35s ease,
+          padding 0.35s ease,
+          border-color 0.35s ease;
+        padding: 22px 0;
+        border-bottom: 1px solid transparent;
+      }
+      .nav.scrolled {
+        background: rgba(245, 247, 251, 0.82);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow:
+          0 1px 0 rgba(11, 20, 38, 0.06),
+          0 12px 30px -24px rgba(11, 20, 38, 0.5);
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        font-family: var(--f-display);
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: -0.01em;
+        color: #eaf0fb;
+        transition: color 0.35s;
+      }
+      .brand b {
+        color: var(--teal);
+      }
+      .nav.scrolled .brand {
+        color: var(--ink);
+      }
+      .brand .dot {
+        color: var(--amber);
+      }
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      .nav-links {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+      .nav-links a {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--muted-dark);
+        padding: 8px 14px;
+        border-radius: 999px;
+        transition:
+          color 0.25s,
+          background 0.25s;
+        position: relative;
+      }
+      .nav.scrolled .nav-links a {
+        color: var(--muted);
+      }
+      .nav-links a:hover {
+        color: #fff;
+      }
+      .nav.scrolled .nav-links a:hover {
+        color: var(--ink);
+      }
+      .nav-links a.active {
+        color: var(--ink);
+        background: var(--teal);
+      }
+      .nav:not(.scrolled) .nav-links a.active {
+        color: var(--ink);
+        background: var(--teal);
+      }
+      .nav-cta {
+        font-size: 0.9rem;
+        font-weight: 600;
+        border: 1px solid var(--line-dark);
+        padding: 9px 18px;
+        border-radius: 999px;
+        color: #eaf0fb !important;
+        background: transparent;
+        transition: 0.25s;
+      }
+      .nav.scrolled .nav-cta {
+        border-color: var(--ink);
+        color: var(--ink) !important;
+      }
+      .nav-cta:hover {
+        background: var(--teal) !important;
+        border-color: var(--teal) !important;
+        color: var(--ink) !important;
+      }
 
-</head>
+      .burger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 130;
+      }
+      .burger span {
+        width: 24px;
+        height: 2px;
+        background: #eaf0fb;
+        border-radius: 2px;
+        transition: 0.3s;
+      }
+      .nav.scrolled .burger span {
+        background: var(--ink);
+      }
+      .menu-open .burger span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .menu-open .burger span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-open .burger span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
 
-<body>
+      /* mobile drawer */
+      .drawer {
+        position: fixed;
+        inset: 0 0 0 auto;
+        width: min(320px, 82vw);
+        background: var(--ink-2);
+        z-index: 125;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.6, 0.05, 0.1, 1);
+        padding: 96px 32px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        box-shadow: -30px 0 60px -30px rgba(0, 0, 0, 0.6);
+      }
+      .menu-open .drawer {
+        transform: translateX(0);
+      }
+      .drawer a {
+        font-family: var(--f-display);
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: #eaf0fb;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line-dark);
+      }
+      .drawer a:last-child {
+        border-bottom: 0;
+        margin-top: 14px;
+        color: var(--ink);
+        background: var(--teal);
+        text-align: center;
+        border-radius: 12px;
+        padding: 14px;
+      }
+      .scrim {
+        position: fixed;
+        inset: 0;
+        background: rgba(7, 12, 24, 0.5);
+        z-index: 124;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.4s;
+      }
+      .menu-open .scrim {
+        opacity: 1;
+        pointer-events: auto;
+      }
 
+      /* ============ HERO ============ */
+      .hero {
+        background: radial-gradient(
+          120% 90% at 80% -10%,
+          #16264a 0%,
+          var(--ink) 55%
+        );
+        color: #eaf0fb;
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 120px 0 80px;
+      }
+      #scatter {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.9;
+      }
+      .hero-glow {
+        position: absolute;
+        width: 520px;
+        height: 520px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(25, 195, 166, 0.2),
+          transparent 65%
+        );
+        top: -120px;
+        right: -80px;
+        z-index: 0;
+        filter: blur(8px);
+      }
+      .hero-glow.amber {
+        background: radial-gradient(
+          circle,
+          rgba(244, 160, 63, 0.16),
+          transparent 65%
+        );
+        top: auto;
+        bottom: -160px;
+        left: -120px;
+        right: auto;
+      }
+      .hero .wrap {
+        position: relative;
+        z-index: 2;
+      }
+      .hero-coord {
+        font-family: var(--f-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        color: var(--muted-dark);
+        margin-bottom: 22px;
+      }
+      .hero-coord b {
+        color: var(--teal);
+      }
+      .hero h1 {
+        font-family: var(--f-display);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 0.98;
+        font-size: clamp(2.7rem, 9vw, 5.6rem);
+      }
+      .hero h1 .accent {
+        background: linear-gradient(90deg, var(--teal), #5fe0c9);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero-sub {
+        font-family: var(--f-display);
+        font-weight: 500;
+        font-size: clamp(1.1rem, 2.6vw, 1.6rem);
+        color: #cbd8ee;
+        margin-top: 18px;
+        letter-spacing: -0.01em;
+      }
+      .hero-desc {
+        color: var(--muted-dark);
+        max-width: 54ch;
+        margin-top: 20px;
+        font-size: 1.05rem;
+      }
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 26px;
+      }
+      .chip {
+        font-family: var(--f-mono);
+        font-size: 0.74rem;
+        letter-spacing: 0.04em;
+        color: #d6e2f5;
+        border: 1px solid var(--line-dark);
+        padding: 7px 13px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .chip b {
+        color: var(--teal);
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 34px;
+      }
+      .btn {
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 14px 26px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s,
+          background 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        border: 1px solid transparent;
+      }
+      .btn-primary {
+        background: var(--teal);
+        color: var(--ink);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 30px -14px rgba(25, 195, 166, 0.6);
+      }
+      .btn-ghost {
+        border-color: var(--line-dark);
+        color: #eaf0fb;
+      }
+      .btn-ghost:hover {
+        transform: translateY(-3px);
+        border-color: var(--teal);
+        color: #fff;
+      }
 
-<nav class="nav">
-  <span id="menu-btn" class="menu-toggle">☰</span>
-    <a href="#container1" class="active"><i class="fa fa-home"></i> Home</a>
-    <a href="#container2"><i class="fa fa-user"></i> About Me</a>
-    <a href="#projects"><i class="fa fa-code"></i> Projects</a>
-    <a href="#Certificates-div"><i class="fa fa-certificate"></i> Certificates</a>
-    <a href="#skills-container"><i class="fa fa-cogs"></i> Skills</a>
-    <a href="Saif-Resume/"><i class="fa fa-file"></i> Resume</a>
-    
-</nav>
+      .scroll-cue {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        font-family: var(--f-mono);
+        font-size: 0.66rem;
+        letter-spacing: 0.2em;
+        color: var(--muted-dark);
+        text-align: center;
+      }
+      .scroll-cue .rail {
+        width: 1px;
+        height: 46px;
+        margin: 10px auto 0;
+        background: linear-gradient(var(--teal), transparent);
+        position: relative;
+        overflow: hidden;
+      }
+      .scroll-cue .rail::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: #fff;
+        animation: drop 1.8s infinite;
+      }
+      @keyframes drop {
+        0% {
+          top: -50%;
+        }
+        100% {
+          top: 100%;
+        }
+      }
 
+      /* ============ STATS STRIP ============ */
+      .stats {
+        background: var(--ink-2);
+        color: #eaf0fb;
+        border-top: 1px solid var(--line-dark);
+        border-bottom: 1px solid var(--line-dark);
+      }
+      .stats .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        padding: 46px 0;
+      }
+      .stat .num {
+        font-family: var(--f-display);
+        font-weight: 700;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: var(--teal);
+      }
+      .stat .num .plus {
+        color: var(--amber);
+      }
+      .stat .lbl {
+        font-family: var(--f-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted-dark);
+        margin-top: 10px;
+      }
 
+      /* ============ ABOUT (only section with photo) ============ */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.9fr;
+        gap: 64px;
+        align-items: center;
+        margin-top: 46px;
+      }
+      .about-text p {
+        color: var(--muted);
+        margin-top: 16px;
+        font-size: 1.06rem;
+      }
+      .about-text p:first-child {
+        margin-top: 0;
+      }
+      .about-text strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .signature {
+        font-family: var(--f-display);
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-top: 26px;
+        color: var(--text);
+      }
+      .signature span {
+        display: block;
+        font-family: var(--f-mono);
+        font-size: 0.74rem;
+        letter-spacing: 0.14em;
+        color: var(--muted);
+        text-transform: uppercase;
+        font-weight: 400;
+        margin-top: 4px;
+      }
 
-<hr>  
-  <div id="container1" class="container1">
-    <div class="content-container">
-      <h2 id="profile">Profile Summary</h2>
-      <p id="summary">Passionate data science student with a specialization in data analysis. 
-        Demonstrated expertise through
-         case studies and web deployment projects. Holder of a Google Data Analyst certificate.</p>
-    </div>
-    <div class="image-container1">
-      <img src="images/Saif-removebg-preview.png" id="rotating-image" alt="Rotating Image">
-    </div>
-  </div>
-<div id="container2">
-    <div class="image-container2">
-      <img src="images/P9.jpg" id="rotating-image2" alt="Rotating Image">
-    </div>
-    <div class="content-container2">
-      <h2 id="about">About Me</h2>
-      <p id="me">I am currently a dedicated data science student at
-         Indiana University Purdue University Indianapolis (IUPUI). 
-         Since my childhood, I've been 
-         captivated by the world of coding, always eager to unravel the
-         mysteries of technology. This passion led me to pursue a career 
-         in data science, where I can merge my analytical skills with my 
-         love for coding. Over the years, I've honed my expertise through 
-         various case studies and web deployment projects. My ultimate goal 
-         is to leverage data-driven insights to address real-world challenges. 
-         Holding a Google Data Analyst certificate, I am committed to continuous 
-         learning and growth within this dynamic industry.</p>
-    </div>
-  </div>
-  <div id="projects">    <h1 class="pr">My projects</h1></div>
-  <div id="scroll-div">
+      .photo-wrap {
+        position: relative;
+        justify-self: center;
+      }
+      .photo-ring {
+        width: clamp(240px, 30vw, 330px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        position: relative;
+        background: conic-gradient(
+          from 200deg,
+          var(--teal),
+          var(--amber),
+          var(--teal)
+        );
+        padding: 6px;
+        box-shadow: 0 30px 60px -28px rgba(25, 195, 166, 0.5);
+      }
+      .photo-ring::before {
+        content: "";
+        position: absolute;
+        inset: -22px;
+        border-radius: 50%;
+        border: 1px dashed var(--line);
+        opacity: 0.9;
+        animation: spin 28s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .photo-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        background: linear-gradient(160deg, #dfe7f2, #c4d2e6);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .photo-inner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+      .photo-fallback {
+        font-family: var(--f-display);
+        font-weight: 700;
+        font-size: 4rem;
+        color: var(--ink-2);
+      }
+      .photo-badge {
+        position: absolute;
+        bottom: 8px;
+        right: -6px;
+        background: var(--paper-2);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 10px 14px;
+        box-shadow: var(--shadow-sm);
+        font-family: var(--f-mono);
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+      .photo-badge b {
+        display: block;
+        font-family: var(--f-display);
+        font-size: 1rem;
+        color: var(--text);
+      }
 
-      <div class="card">
-        <img class="cardimg" src="images/p1.jpeg" alt="jk">
-        <div class="card__descr-wrapper">
-          <p class="card__title">
-            <h3>Case Study of US Crime Reporting Patterns</h3>
-         
+      /* ============ EXPERIENCE ============ */
+      .timeline {
+        margin-top: 48px;
+        position: relative;
+        padding-left: 30px;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background: linear-gradient(var(--teal), var(--line-dark));
+      }
+      .tl-item {
+        position: relative;
+        padding-bottom: 8px;
+      }
+      .tl-item::before {
+        content: "";
+        position: absolute;
+        left: -30px;
+        top: 6px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--ink);
+        border: 3px solid var(--teal);
+        box-shadow: 0 0 0 4px rgba(25, 195, 166, 0.15);
+      }
+      .tl-role {
+        font-family: var(--f-display);
+        font-weight: 600;
+        font-size: 1.3rem;
+        letter-spacing: -0.01em;
+      }
+      .tl-meta {
+        font-family: var(--f-mono);
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        color: var(--teal);
+        margin: 6px 0 14px;
+      }
+      .tl-list {
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+      .tl-list li {
+        position: relative;
+        padding-left: 22px;
+        color: var(--muted-dark);
+      }
+      .tl-list li::before {
+        content: "›";
+        position: absolute;
+        left: 0;
+        color: var(--amber);
+        font-weight: 700;
+      }
+
+      /* ============ SKILLS ============ */
+      .skill-groups {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px 56px;
+        margin-top: 46px;
+      }
+      .sg-name {
+        font-family: var(--f-mono);
+        font-size: 0.74rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 22px 0 6px;
+      }
+      .skill {
+        margin: 14px 0;
+      }
+      .skill-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 7px;
+      }
+      .skill-top .name {
+        font-weight: 600;
+        font-size: 0.97rem;
+      }
+      .skill-top .pct {
+        font-family: var(--f-mono);
+        font-size: 0.82rem;
+        color: var(--teal-deep);
+        font-weight: 500;
+      }
+      .bar {
+        height: 8px;
+        border-radius: 999px;
+        background: var(--line);
+        overflow: hidden;
+      }
+      .bar i {
+        display: block;
+        height: 100%;
+        width: 0;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--teal), var(--teal-deep));
+        transition: width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .skill.warm .bar i {
+        background: linear-gradient(90deg, var(--amber), var(--amber-deep));
+      }
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 40px;
+      }
+      .tag {
+        font-family: var(--f-mono);
+        font-size: 0.8rem;
+        color: var(--text);
+        background: var(--paper-2);
+        border: 1px solid var(--line);
+        padding: 9px 15px;
+        border-radius: 10px;
+        transition: 0.2s;
+      }
+      .tag:hover {
+        border-color: var(--teal);
+        color: var(--teal-deep);
+        transform: translateY(-2px);
+      }
+
+      /* ============ PROJECTS ============ */
+      .proj-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 26px;
+        margin-top: 46px;
+      }
+      .card {
+        background: var(--paper-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+          box-shadow 0.35s,
+          border-color 0.35s;
+        position: relative;
+        overflow: hidden;
+      }
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--teal), var(--amber));
+        transform: scaleX(0);
+        transform-origin: 0;
+        transition: transform 0.4s;
+      }
+      .card:hover {
+        transform: translateY(-7px);
+        box-shadow: var(--shadow);
+        border-color: transparent;
+      }
+      .card:hover::after {
+        transform: scaleX(1);
+      }
+      .card .idx {
+        font-family: var(--f-mono);
+        font-size: 0.76rem;
+        color: var(--muted);
+        letter-spacing: 0.1em;
+      }
+      .card h3 {
+        font-family: var(--f-display);
+        font-weight: 600;
+        font-size: 1.32rem;
+        margin: 10px 0 12px;
+        letter-spacing: -0.01em;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 0.98rem;
+        flex: 1;
+      }
+      .card .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 18px 0;
+      }
+      .card .tags span {
+        font-family: var(--f-mono);
+        font-size: 0.72rem;
+        color: var(--teal-deep);
+        background: rgba(25, 195, 166, 0.09);
+        border: 1px solid rgba(25, 195, 166, 0.22);
+        padding: 5px 10px;
+        border-radius: 8px;
+      }
+      .card .view {
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--text);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition:
+          gap 0.25s,
+          color 0.25s;
+      }
+      .card .view svg {
+        transition: transform 0.25s;
+      }
+      .card:hover .view {
+        color: var(--teal-deep);
+      }
+      .card:hover .view svg {
+        transform: translate(4px, -4px);
+      }
+      .card.wip h3::after {
+        content: "In progress";
+        font-family: var(--f-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--amber-deep);
+        background: rgba(244, 160, 63, 0.12);
+        padding: 4px 8px;
+        border-radius: 6px;
+        margin-left: 10px;
+        vertical-align: middle;
+        font-weight: 500;
+      }
+
+      /* ============ CERTIFICATES ============ */
+      .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-top: 46px;
+      }
+      .cert {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--line-dark);
+        border-radius: var(--r);
+        padding: 26px;
+        transition: 0.3s;
+      }
+      .cert:hover {
+        border-color: var(--teal);
+        background: rgba(25, 195, 166, 0.06);
+      }
+      .cert .seal {
+        flex: none;
+        width: 58px;
+        height: 58px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--f-display);
+        font-weight: 700;
+        font-size: 1.4rem;
+        background: linear-gradient(150deg, var(--teal), var(--teal-deep));
+        color: var(--ink);
+      }
+      .cert.amber .seal {
+        background: linear-gradient(150deg, var(--amber), var(--amber-deep));
+      }
+      .cert h4 {
+        font-family: var(--f-display);
+        font-weight: 600;
+        font-size: 1.12rem;
+      }
+      .cert p {
+        font-family: var(--f-mono);
+        font-size: 0.76rem;
+        letter-spacing: 0.08em;
+        color: var(--muted-dark);
+        margin-top: 5px;
+        text-transform: uppercase;
+      }
+
+      /* ============ CONTACT ============ */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 60px;
+        margin-top: 46px;
+        align-items: start;
+      }
+      .contact-list {
+        display: grid;
+        gap: 6px;
+        margin-top: 8px;
+      }
+      .cl {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .cl:last-child {
+        border-bottom: 0;
+      }
+      .cl .ic {
+        flex: none;
+        width: 42px;
+        height: 42px;
+        border-radius: 11px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--teal-deep);
+      }
+      .cl .k {
+        font-family: var(--f-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .cl .v {
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--text);
+        word-break: break-word;
+      }
+      .cl a.v:hover {
+        color: var(--teal-deep);
+      }
+
+      .form {
+        background: var(--paper-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 30px;
+        box-shadow: var(--shadow-sm);
+      }
+      .field {
+        margin-bottom: 16px;
+      }
+      .field label {
+        display: block;
+        font-family: var(--f-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 7px;
+      }
+      .field input,
+      .field textarea {
+        width: 100%;
+        font-family: var(--f-body);
+        font-size: 0.97rem;
+        color: var(--text);
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 13px 15px;
+        transition: 0.2s;
+        resize: vertical;
+      }
+      .field input:focus,
+      .field textarea:focus {
+        outline: none;
+        border-color: var(--teal);
+        box-shadow: 0 0 0 4px rgba(25, 195, 166, 0.12);
+        background: #fff;
+      }
+      .form .btn-primary {
+        width: 100%;
+        justify-content: center;
+        margin-top: 6px;
+      }
+      .form-note {
+        font-family: var(--f-mono);
+        font-size: 0.72rem;
+        color: var(--muted);
+        margin-top: 14px;
+        text-align: center;
+      }
+
+      /* ============ FOOTER ============ */
+      .footer {
+        background: var(--ink);
+        color: var(--muted-dark);
+        padding: 40px 0;
+        text-align: center;
+      }
+      .footer .brand {
+        color: #eaf0fb;
+        font-size: 1.2rem;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      .footer .socials {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        margin: 18px 0;
+      }
+      .footer .socials a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--line-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted-dark);
+        transition: 0.25s;
+      }
+      .footer .socials a:hover {
+        color: var(--ink);
+        background: var(--teal);
+        border-color: var(--teal);
+        transform: translateY(-3px);
+      }
+      .footer small {
+        font-family: var(--f-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.04em;
+        display: block;
+        margin-top: 14px;
+      }
+
+      /* ============ REVEAL ANIMATION ============ */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+          transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal.d1 {
+        transition-delay: 0.08s;
+      }
+      .reveal.d2 {
+        transition-delay: 0.16s;
+      }
+      .reveal.d3 {
+        transition-delay: 0.24s;
+      }
+      .reveal.d4 {
+        transition-delay: 0.32s;
+      }
+
+      /* ============ RESPONSIVE ============ */
+      @media (max-width: 920px) {
+        .nav-links,
+        .nav .nav-cta {
+          display: none;
+        }
+        .burger {
+          display: flex;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .photo-wrap {
+          order: -1;
+        }
+        .skill-groups {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+        .proj-grid,
+        .cert-grid,
+        .contact-grid,
+        .stats .grid {
+          grid-template-columns: 1fr;
+        }
+        .contact-grid {
+          gap: 36px;
+        }
+      }
+      @media (max-width: 560px) {
+        .stats .grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px 16px;
+        }
+        .wrap {
+          padding: 0 20px;
+        }
+        .nav-inner {
+          padding: 0 20px;
+        }
+        .hero-sub {
+          color: #cbd8ee;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress" id="progress"></div>
+
+    <!-- NAV -->
+    <header class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="#home" class="brand"
+          >Saif<b> Abdul</b> Qadeer<span class="dot">.</span></a
+        >
+        <nav class="nav-links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#certificates">Certificates</a>
+          <a href="#contact" class="nav-cta">Get in touch</a>
+        </nav>
+        <button
+          class="burger"
+          id="burger"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MOBILE DRAWER -->
+    <div class="scrim" id="scrim"></div>
+    <aside class="drawer" id="drawer">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Get in touch</a>
+    </aside>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <canvas id="scatter"></canvas>
+      <div class="hero-glow"></div>
+      <div class="hero-glow amber"></div>
+      <div class="wrap">
+        <p class="hero-coord">
+          x: <b>data</b> &nbsp;·&nbsp; y: <b>decisions</b> &nbsp;·&nbsp; r² =
+          trust
         </p>
-        <p class="card__descr">
-          <p> 
-            This case study delves deep into the patterns of US crime reports, 
-            uncovering vital temporal and geographical nuances. We highlight 
-            potential crime hotspots and spotlight the diversity of reporting 
-            organizations. Our insights guide informed decision-making in crime 
-            response and policy formulation.
-          </p>
-         </p>
-        <div class="card__links">
-      
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-            <a class="link" href="Case-Study-of-US-Crime-Reporting-Patterns/">View Project</a><br><br>
-
-        </div>
-        </div>
-      </div>
-      <div class="card">
-
-                <img class="cardimg" src="images/cccc.png"jk">
-        <div class="card__descr-wrapper">
-          <p class="card__title">
-            <h3>Entropy and Information Gain Calculator</h3>
-         
+        <h1>Saif Abdul Qadeer<span class="accent">.</span></h1>
+        <p class="hero-sub">
+          Data Science &amp; Business Analysis Professional
         </p>
-        <p class="card__descr">
-          <p> 
-            The Entropy and Information Gain Calculator is a web-based tool that allows users to input data and calculate the entropy of a dataset and the information gain of each feature. The calculator provides a step-by-step guide, showing the calculations and results for each feature, making it easy to understand the process. The website is fully responsive and aesthetically designed, ensuring a seamless user experience on any device.
-          </p>
-         </p>
-        <div class="card__links">
-      
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-            <a class="link" href="Entropy-and-Information-Gain-Calculator/">View Project</a><br><br>
-
-        </div>
-        </div>
-      </div>
-      <div class="card">
-
-                <img class="cardimg" src="images/p2.jpg" alt="jk">
-        <div class="card__descr-wrapper">
-          <p class="card__title">
-            <h3>Gym Portal Project</h3>
-         
+        <p class="hero-desc">
+          I turn messy, multi-source data into clean, decision-ready insight —
+          validating the numbers, building the dashboards, and telling the story
+          behind them.
         </p>
-        <p class="card__descr">
-          <p> 
-            The "Gym Portal Project" is a web development initiative, highlighting a gym's services via a sleek interface with a background video and detailed workout descriptions. Users can navigate through a step-by-step registration and explore various offerings like aerobics. Built on HTML, CSS, and jQuery, it promises a responsive user experience.
-          </p>
-         </p>
-        <div class="card__links">
-      
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-            <a class="link" href="Gym-Portal-Project/">View Project</a><br><br>
-
+        <div class="hero-meta">
+          <span class="chip"><b>IUPUI</b> · Data Science Graduate</span>
+          <span class="chip">Google <b>·</b> Microsoft Certified</span>
+          <span class="chip">Indiana, USA</span>
         </div>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary"
+            >View projects
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
         </div>
       </div>
-      <div class="card">
+      <div class="scroll-cue">
+        SCROLL
+        <div class="rail"></div>
+      </div>
+    </section>
 
-                <img class="cardimg" src="images/wp2.jpeg" alt="jk">
-        <div class="card__descr-wrapper">
-          <p class="card__title">
-            <h3>Weakly Planer Websute</h3>
-         
+    <!-- STATS -->
+    <section class="stats">
+      <div class="wrap">
+        <div class="grid">
+          <div class="stat reveal">
+            <div class="num" data-count="5"><span class="plus">+</span></div>
+            <div class="lbl">Deployed projects</div>
+          </div>
+          <div class="stat reveal d1">
+            <div class="num" data-count="2"></div>
+            <div class="lbl">Pro certifications</div>
+          </div>
+          <div class="stat reveal d2">
+            <div class="num" data-count="12"></div>
+            <div class="lbl">Core competencies</div>
+          </div>
+          <div class="stat reveal d3">
+            <div class="num" data-count="100"><span class="plus">%</span></div>
+            <div class="lbl">Decision-focused</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT (the only section with a photo) -->
+    <section class="block" id="about">
+      <div class="wrap">
+        <span class="eyebrow reveal">About me</span>
+        <h2 class="title reveal d1">Analysis you can act on.</h2>
+        <div class="about-grid">
+          <div class="about-text reveal d2">
+            <p>
+              I'm a
+              <strong
+                >Data Science graduate from Indiana University–Purdue University
+                Indianapolis (IUPUI)</strong
+              >, specializing in data analysis and business intelligence. What
+              started as a childhood fascination with code grew into a career
+              built on one belief: the right analysis, communicated clearly,
+              helps people make better decisions.
+            </p>
+            <p>
+              I work across the full analytics lifecycle —
+              <strong
+                >validating and modeling data, building responsive dashboards,
+                and translating findings</strong
+              >
+              for both technical and non-technical audiences. I care as much
+              about clean documentation and trustworthy data as I do about the
+              insight itself.
+            </p>
+            <p>
+              Lately I've been folding generative-AI tools into my workflow to
+              accelerate exploratory analysis, documentation, and reporting — so
+              the time goes where it matters: the thinking.
+            </p>
+            <div class="signature">
+              Saif Abdul Qadeer
+              <span>Data Science · Business Analysis</span>
+            </div>
+          </div>
+          <div class="photo-wrap reveal d2">
+            <div class="photo-ring" id="photoRing">
+              <div class="photo-inner">
+                <img
+                  src="https://sabdulq.github.io/Saif-portfolio/images/Saif-removebg-preview.png"
+                  alt="Saif Abdul Qadeer"
+                  onerror="
+                    this.style.display = 'none';
+                    this.parentNode.innerHTML =
+                      '<span class=&quot;photo-fallback&quot;>SA</span>';
+                  "
+                />
+              </div>
+            </div>
+            <div class="photo-badge"><b>IUPUI</b>Data Science</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="block dark" id="experience">
+      <div class="wrap">
+        <span class="eyebrow reveal">Experience</span>
+        <h2 class="title reveal d1">Where the work happened.</h2>
+        <p class="lead reveal d1">
+          Hands-on analytics delivery focused on accuracy, documentation, and
+          decisions leadership could trust.
         </p>
-        <p class="card__descr">
-          <p> 
-            The weekly planner website provides a simple and aesthetic interface for users to create and manage their weekly plans. Users can add tasks for each day of the week, mark them as done or not done, and view their plans in a neatly organized table on the homepage, with options to edit or delete as needed and also let user to print plans.
-          </p>
-         </p>
-        <div class="card__links">
-      
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-            <a class="link" href="WeaklyPlaner/">View Project</a><br><br>
-
-        </div>
+        <div class="timeline">
+          <div class="tl-item reveal d2">
+            <div class="tl-role">Data Analyst — US Molders</div>
+            <div class="tl-meta">DATA MANAGEMENT · REPORTING · VALIDATION</div>
+            <ul class="tl-list">
+              <li>
+                Managed and validated data across departments, ensuring accuracy
+                and consistency for company-wide reporting.
+              </li>
+              <li>
+                Built structured performance reports and delivered ad hoc
+                analysis that enabled leadership to make timely, informed
+                decisions.
+              </li>
+              <li>
+                Independently identified and resolved data discrepancies,
+                maintaining organized documentation and consistent standards.
+              </li>
+              <li>
+                Partnered with cross-functional teams to align on data
+                definitions, reporting needs, and stakeholder priorities.
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="card">
-
-                <img class="cardimg" src="images/p4.jpeg" alt="jk">
-        <div class="card__descr-wrapper">
-          <p class="card__title">
-            <h3>Multi-Tool Calculator App</h3>
-         
+    <!-- SKILLS -->
+    <section class="block" id="skills">
+      <div class="wrap">
+        <span class="eyebrow reveal">Skills</span>
+        <h2 class="title reveal d1">A toolkit built for the full pipeline.</h2>
+        <p class="lead reveal d1">
+          From querying raw data to presenting it in clean, user-friendly
+          formats.
         </p>
-        <p class="card__descr">
-          <p> 
-            The "Multi-Tool Calculator App" is a versatile tool crafted to meet diverse computation needs. It boasts an array of calculators, each meticulously designed for specific tasks, guaranteeing precise results. While the app is still under development, an interactive template is available for preview. Once finalized, it will make its debut on the Play Store for users to easily access and utilize.
-          </p>
-         </p>
-        <div class="card__links">
-      
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-            <a class="link" href="Multi-Tool-CalculatorApp/">View Project</a><br><br>
 
+        <div class="skill-groups">
+          <div class="reveal d2">
+            <div class="sg-name">Languages &amp; Querying</div>
+            <div class="skill">
+              <div class="skill-top">
+                <span class="name">Python</span
+                ><span class="pct" data-pct="90">0%</span>
+              </div>
+              <div class="bar"><i data-w="90"></i></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top">
+                <span class="name">SQL</span
+                ><span class="pct" data-pct="88">0%</span>
+              </div>
+              <div class="bar"><i data-w="88"></i></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top">
+                <span class="name">R</span
+                ><span class="pct" data-pct="85">0%</span>
+              </div>
+              <div class="bar"><i data-w="85"></i></div>
+            </div>
+
+            <div class="sg-name">Analysis &amp; Machine Learning</div>
+            <div class="skill">
+              <div class="skill-top">
+                <span class="name">Data Analysis</span
+                ><span class="pct" data-pct="92">0%</span>
+              </div>
+              <div class="bar"><i data-w="92"></i></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top">
+                <span class="name">Machine Learning</span
+                ><span class="pct" data-pct="90">0%</span>
+              </div>
+              <div class="bar"><i data-w="90"></i></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top">
+                <span class="name">Statistical Methods</span
+                ><span class="pct" data-pct="86">0%</span>
+              </div>
+              <div class="bar"><i data-w="86"></i></div>
+            </div>
+          </div>
+
+          <div class="reveal d3">
+            <div class="sg-name">Visualization &amp; BI</div>
+            <div class="skill warm">
+              <div class="skill-top">
+                <span class="name">Data Visualization</span
+                ><span class="pct" data-pct="89">0%</span>
+              </div>
+              <div class="bar"><i data-w="89"></i></div>
+            </div>
+            <div class="skill warm">
+              <div class="skill-top">
+                <span class="name">Tableau</span
+                ><span class="pct" data-pct="87">0%</span>
+              </div>
+              <div class="bar"><i data-w="87"></i></div>
+            </div>
+            <div class="skill warm">
+              <div class="skill-top">
+                <span class="name">Power BI</span
+                ><span class="pct" data-pct="85">0%</span>
+              </div>
+              <div class="bar"><i data-w="85"></i></div>
+            </div>
+
+            <div class="sg-name">Platforms &amp; Data</div>
+            <div class="skill warm">
+              <div class="skill-top">
+                <span class="name">Database Management</span
+                ><span class="pct" data-pct="90">0%</span>
+              </div>
+              <div class="bar"><i data-w="90"></i></div>
+            </div>
+            <div class="skill warm">
+              <div class="skill-top">
+                <span class="name">Big Data</span
+                ><span class="pct" data-pct="86">0%</span>
+              </div>
+              <div class="bar"><i data-w="86"></i></div>
+            </div>
+            <div class="skill warm">
+              <div class="skill-top">
+                <span class="name">Google Cloud</span
+                ><span class="pct" data-pct="85">0%</span>
+              </div>
+              <div class="bar"><i data-w="85"></i></div>
+            </div>
+          </div>
         </div>
+
+        <div class="tag-row reveal d2">
+          <span class="tag">HTML</span><span class="tag">CSS</span
+          ><span class="tag">JavaScript</span> <span class="tag">jQuery</span
+          ><span class="tag">Regression</span
+          ><span class="tag">Descriptive Analysis</span>
+          <span class="tag">Generative AI</span
+          ><span class="tag">MS PowerPoint</span
+          ><span class="tag">Team Collaboration</span>
         </div>
       </div>
+    </section>
 
-    </div>
-    <div id="Certificates-div"><br><br>
-      <h1>
-        Certificates
-      </h1><br>
-      <img id="Certificates-card" src="images/Screenshot_20230808_061621_Samsung Notes.jpg"></img ><br><br><br>
-    </div>        
-    <!-- <div id="skills">    <h1 class="pr">My Skills</h1></div>
-    <div id="skills-div" class="hidden">
-      <div id="div">
-      <ul class="skills-bar-container">
-        <li>
-          <div class="progressbar-title">                                      <h3>HTML5</h3>
-      <span class="percent" id="html-pourcent"></span>
-         </div>
-          <div class="bar-container">
-     <span class="progressbar progresstomatoes" id="progress-html"></span>
-         </div>
-        </li>
-         <li>
-         <div class="progressbar-title">
-    <h3>CSS / SASS</h3>
-      <span class="percent" id="css-pourcent"></span>
-       </div>
-      <div class="bar-container">
-      <span class="progressbar progresstomatoes" id= "progress-css"></span>
+    <!-- PROJECTS -->
+    <section class="block dark" id="projects">
+      <div class="wrap">
+        <span class="eyebrow reveal">Projects</span>
+        <h2 class="title reveal d1">Selected work.</h2>
+        <p class="lead reveal d1">
+          Case studies and deployed web tools — each one shipped end to end.
+        </p>
+        <div class="proj-grid">
+          <a
+            class="card reveal d2"
+            href="https://sabdulq.github.io/Saif-portfolio/Case-Study-of-US-Crime-Reporting-Patterns/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="idx">01 / CASE STUDY</span>
+            <h3>US Crime Reporting Patterns</h3>
+            <p>
+              A deep dive into US crime-report data, surfacing temporal and
+              geographical patterns. Maps likely hotspots and the diversity of
+              reporting organizations to guide crime-response and policy
+              decisions.
+            </p>
+            <div class="tags">
+              <span>R</span><span>Data Analysis</span><span>Visualization</span>
+            </div>
+            <span class="view"
+              >View project
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+              >
+                <path d="M7 17 17 7M9 7h8v8" /></svg
+            ></span>
+          </a>
+
+          <a
+            class="card reveal d3"
+            href="https://sabdulq.github.io/Saif-portfolio/Entropy-and-Information-Gain-Calculator/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="idx">02 / WEB TOOL</span>
+            <h3>Entropy &amp; Information Gain Calculator</h3>
+            <p>
+              A responsive web app that computes dataset entropy and per-feature
+              information gain, with a step-by-step walkthrough of every
+              calculation — making a core ML concept easy to follow on any
+              device.
+            </p>
+            <div class="tags">
+              <span>JavaScript</span><span>ML Concepts</span
+              ><span>Responsive UI</span>
+            </div>
+            <span class="view"
+              >View project
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+              >
+                <path d="M7 17 17 7M9 7h8v8" /></svg
+            ></span>
+          </a>
+
+          <a
+            class="card reveal d2"
+            href="https://sabdulq.github.io/Saif-portfolio/Gym-Portal-Project/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="idx">03 / FRONT-END</span>
+            <h3>Gym Portal</h3>
+            <p>
+              A sleek gym landing experience with a video backdrop, detailed
+              workout descriptions, and a step-by-step registration flow — fully
+              responsive across screen sizes.
+            </p>
+            <div class="tags">
+              <span>HTML</span><span>CSS</span><span>jQuery</span>
+            </div>
+            <span class="view"
+              >View project
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+              >
+                <path d="M7 17 17 7M9 7h8v8" /></svg
+            ></span>
+          </a>
+
+          <a
+            class="card reveal d3"
+            href="https://sabdulq.github.io/Saif-portfolio/WeaklyPlaner/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="idx">04 / FRONT-END</span>
+            <h3>Weekly Planner</h3>
+            <p>
+              A clean planner for building and managing a weekly schedule — add
+              tasks per day, mark them done, edit or delete, view an organized
+              table, and print the finished plan.
+            </p>
+            <div class="tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <span class="view"
+              >View project
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+              >
+                <path d="M7 17 17 7M9 7h8v8" /></svg
+            ></span>
+          </a>
+
+          <a
+            class="card wip reveal d2"
+            href="https://sabdulq.github.io/Saif-portfolio/Multi-Tool-CalculatorApp/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="idx">05 / APP</span>
+            <h3>Multi-Tool Calculator</h3>
+            <p>
+              A versatile suite of purpose-built calculators under one roof,
+              designed for precise results. An interactive preview is live, with
+              a Play Store release planned.
+            </p>
+            <div class="tags">
+              <span>JavaScript</span><span>UI Design</span>
+            </div>
+            <span class="view"
+              >View preview
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+              >
+                <path d="M7 17 17 7M9 7h8v8" /></svg
+            ></span>
+          </a>
+
+          <a
+            class="card reveal d3"
+            href="https://sabdulq.github.io/Saif-portfolio/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="idx">+ / MORE</span>
+            <h3>The full archive</h3>
+            <p>
+              Browse the complete portfolio, including earlier experiments and
+              the original project write-ups, on GitHub Pages.
+            </p>
+            <div class="tags">
+              <span>Portfolio</span><span>GitHub Pages</span>
+            </div>
+            <span class="view"
+              >Open archive
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+              >
+                <path d="M7 17 17 7M9 7h8v8" /></svg
+            ></span>
+          </a>
+        </div>
       </div>
-      </li>
-    
-      <li><div class="progressbar-title"> 
-        
-      <h3>JavaScript / jQuery</h3>
-      <span class="percent" id="javascript-pourcent"></span>
-    </div>
-    <div class="bar-container">
-      <span class="progressbar progresstomatoes" id="progress-javascript"></span>
-    </div>
-  </li>
-  <li>
-    <div class="progressbar-title">
-      <h3>PHP</h3>
-      <span class="percent" id="php-pourcent"></span>
-    </div>
-    <div class="bar-container">
-      <span class="progressbar progresstomatoes" id="progress-php"></span>
-    </div>
-  </li>
-  <li>
-    <div class="progressbar-title col">
-       <h3>Wordpress</h3>
-       <span class="percent" id="wordpress-pourcent"></span>
-    </div>
-    <div class="bar-container">
-      <span class="progressbar progresstomatoes" id="progress-wordpress"></span>
-    </div>
-  </li>
-  <li>
-    <div class="progressbar-title">
-      <h3>Bootstrap</h3>
-      <span class="percent" id="bootstrap-pourcent"></span>
-    </div>
-    <div class="bar-container">
-      <span class="progressbar progresstomatoes" id="progress-bootstrap"></span>
-    </div>
-  </li>
-  <li>
-    <div class="progressbar-title">
-      <h3>Laravel</h3>
-      <span class="percent" id="laravel-pourcent"></span>
-    </div>
-    <div class="bar-container">
-        <span class="progressbar progresstomatoes" id= "progress-laravel"></span>
-    </div>
-  </li>
-</ul>
-<ul class="skills-bar-container">
-      <li>
-        <div class="progressbar-title">                                      <h3>HTML5</h3>
-    <span class="percent" id="html-pourcent"></span>
-       </div>
-        <div class="bar-container">
-   <span class="progressbar progresstomatoes" id="progress-html"></span>
-       </div>
-      </li>
-       <li>
-       <div class="progressbar-title">
-  <h3>CSS / SASS</h3>
-    <span class="percent" id="css-pourcent"></span>
-     </div>
-    <div class="bar-container">
-    <span class="progressbar progresstomatoes" id= "progress-css"></span>
-    </div>
-    </li>
-  
-    <li><div class="progressbar-title"> 
-      
-    <h3>JavaScript / jQuery</h3>
-    <span class="percent" id="javascript-pourcent"></span>
-  </div>
-  <div class="bar-container">
-    <span class="progressbar progresstomatoes" id="progress-javascript"></span>
-  </div>
-</li>
-<li>
-  <div class="progressbar-title">
-    <h3>PHP</h3>
-    <span class="percent" id="php-pourcent"></span>
-  </div>
-  <div class="bar-container">
-    <span class="progressbar progresstomatoes" id="progress-php"></span>
-  </div>
-</li>
-<li>
-  <div class="progressbar-title col">
-     <h3>Wordpress</h3>
-     <span class="percent" id="wordpress-pourcent"></span>
-  </div>
-  <div class="bar-container">
-    <span class="progressbar progresstomatoes" id="progress-wordpress"></span>
-  </div>
-</li>
-<li>
-  <div class="progressbar-title">
-    <h3>Bootstrap</h3>
-    <span class="percent" id="bootstrap-pourcent"></span>
-  </div>
-  <div class="bar-container">
-    <span class="progressbar progresstomatoes" id="progress-bootstrap"></span>
-  </div>
-</li>
-<li>
-  <div class="progressbar-title">
-    <h3>Laravel</h3>
-    <span class="percent" id="laravel-pourcent"></span>
-  </div>
-  <div class="bar-container">
-      <span class="progressbar progresstomatoes" id= "progress-laravel"></span>
-  </div>
-</li>
-</ul>
-</div>
-</div> -->
-<div >
+    </section>
 
-<h1 id="skill">Skills</h1>
-<div class="skills-container " id="skills-container">
-
-    <div class="skill">
-        <h4>Python</h4>
-        <div class="progress">
-            <div class="progress-bar" style="width: 90%;">
-                90%
+    <!-- CERTIFICATES -->
+    <section
+      class="block dark"
+      id="certificates"
+      style="background: var(--ink-2)"
+    >
+      <div class="wrap">
+        <span class="eyebrow reveal">Certifications</span>
+        <h2 class="title reveal d1">Credentials that back the work.</h2>
+        <div class="cert-grid">
+          <div class="cert reveal d2">
+            <div class="seal">G</div>
+            <div>
+              <h4>Google Data Analytics</h4>
+              <p>Google · Professional Certificate</p>
             </div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <h4>R</h4>
-        <div class="progress">
-            <div class="progress-bar" style="width: 85%;">
-                85%
+          </div>
+          <div class="cert amber reveal d3">
+            <div class="seal">M</div>
+            <div>
+              <h4>Business Analyst Professional</h4>
+              <p>Microsoft · Professional Certificate</p>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <div class="skill">
-        <h4>SQL</h4>
-        <div class="progress">
-            <div class="progress-bar" style="width: 88%;">
-                88%
+    <!-- CONTACT -->
+    <section class="block" id="contact">
+      <div class="wrap">
+        <span class="eyebrow reveal">Contact</span>
+        <h2 class="title reveal d1">Let's turn your data into decisions.</h2>
+        <p class="lead reveal d1">
+          Open to data analyst and business analysis roles, and collaborations.
+          The fastest way to reach me is below.
+        </p>
+
+        <div class="contact-grid">
+          <div class="reveal d2">
+            <div class="contact-list">
+              <div class="cl">
+                <div class="ic">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3 7 9 6 9-6" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="k">Email</div>
+                  <a class="v" href="mailto:saifabdulqadeer@gmail.com"
+                    >saifabdulqadeer@gmail.com</a
+                  >
+                </div>
+              </div>
+              <div class="cl">
+                <div class="ic">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div class="k">Phone</div>
+                  <a class="v" href="tel:+13177920409">317-792-0409</a>
+                </div>
+              </div>
+              <div class="cl">
+                <div class="ic">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6Z"
+                    />
+                    <rect x="2" y="9" width="4" height="11" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="k">LinkedIn</div>
+                  <a
+                    class="v"
+                    href="https://www.linkedin.com/in/saif-abdul-qadeer"
+                    target="_blank"
+                    rel="noopener"
+                    >in/saif-abdul-qadeer</a
+                  >
+                </div>
+              </div>
+              <div class="cl">
+                <div class="ic">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 20 4.8 4.9 4.9 0 0 0 19.9 1S18.7.6 16 2.5a13.4 13.4 0 0 0-7 0C6.3.6 5.1 1 5.1 1A4.9 4.9 0 0 0 5 4.8a5.2 5.2 0 0 0-1.4 3.7c0 5.2 3.2 6.4 6.2 6.7A3.4 3.4 0 0 0 9 17.8V22"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div class="k">Portfolio</div>
+                  <a
+                    class="v"
+                    href="https://sabdulq.github.io/Saif-portfolio/"
+                    target="_blank"
+                    rel="noopener"
+                    >sabdulq.github.io/Saif-portfolio</a
+                  >
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
+          </div>
 
-    <div class="skill">
-        <h4>Data Analysis</h4>
-        <div class="progress">
-            <div class="progress-bar" style="width: 92%;">
-                92%
+          <div class="form reveal d3">
+            <div class="field">
+              <label for="cName">Name</label
+              ><input id="cName" type="text" placeholder="Your name" />
             </div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <h4>Machine Learning</h4>
-        <div class="progress">
-            <div class="progress-bar" style="width: 90%;">
-                90%
+            <div class="field">
+              <label for="cCompany">Company / context</label
+              ><input
+                id="cCompany"
+                type="text"
+                placeholder="Where you're reaching out from"
+              />
             </div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <h4>Data Visualization</h4>
-        <div class="progress">
-            <div class="progress-bar" style="width: 89%;">
-                89%
+            <div class="field">
+              <label for="cSubject">Subject</label
+              ><input
+                id="cSubject"
+                type="text"
+                placeholder="What's this about?"
+              />
             </div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <h4>Tableau</h4>
-        <div class="progress">
-            <div class="progress-bar" style="width: 87%;">
-                87%
+            <div class="field">
+              <label for="cMsg">Message</label
+              ><textarea
+                id="cMsg"
+                rows="4"
+                placeholder="A few lines about the role or project"
+              ></textarea>
             </div>
+            <button class="btn btn-primary" id="sendBtn" type="button">
+              Send message
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+              >
+                <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z" />
+              </svg>
+            </button>
+            <p class="form-note">Opens in your email app, addressed to Saif.</p>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <div class="skill">
-        <h4>Big Data</h4>
-        <div class="progress">
-            <div class="progress-bar" style="width: 86%;">
-                86%
-            </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="wrap">
+        <a href="#home" class="brand"
+          >Saif Abdul Qadeer<span style="color: var(--amber)">.</span></a
+        >
+        <div class="socials">
+          <a href="mailto:saifabdulqadeer@gmail.com" aria-label="Email"
+            ><svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m3 7 9 6 9-6" /></svg
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/saif-abdul-qadeer"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            ><svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6Z"
+              />
+              <rect x="2" y="9" width="4" height="11" />
+              <circle cx="4" cy="4" r="2" /></svg
+          ></a>
+          <a
+            href="https://discord.gg/6F3UzjhTau"
+            target="_blank"
+            rel="noopener"
+            aria-label="Discord"
+            ><svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M20 4.4A19 19 0 0 0 15.3 3l-.3.5a14 14 0 0 1 4 2 13 13 0 0 0-11.3 0 14 14 0 0 1 4-2L11.4 3A19 19 0 0 0 6.7 4.4 20 20 0 0 0 3 18a19 19 0 0 0 5.7 2.9l.5-1a12 12 0 0 1-2-1l.5-.3a13 13 0 0 0 11 0l.5.3a12 12 0 0 1-2 1l.5 1A19 19 0 0 0 23.7 18 20 20 0 0 0 20 4.4ZM9.3 15.3c-1 0-1.8-1-1.8-2.1s.8-2 1.8-2 1.8 1 1.8 2.1-.8 2-1.8 2Zm5.4 0c-1 0-1.8-1-1.8-2.1s.8-2 1.8-2 1.8 1 1.8 2.1-.8 2-1.8 2Z"
+              /></svg
+          ></a>
+          <a
+            href="https://sabdulq.github.io/Saif-portfolio/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Portfolio"
+            ><svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z" /></svg
+          ></a>
         </div>
-    </div>
+        <small
+          >© <span id="yr"></span> Saif Abdul Qadeer · Designed &amp; built with
+          data in mind.</small
+        >
+      </div>
+    </footer>
 
-    <div class="skill">
-        <h4>Google Cloud</h4>
-        <div class="progress">
-            <div class="progress-bar" style="width: 85%;">
-                85%
-            </div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <h4>Team Collaboration</h4>
-        <div class="progress">
-            <div class="progress-bar" style="width: 93%;">
-                93%
-            </div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <h4>Database Management</h4>
-        <div class="progress">
-            <div class="progress-bar" style="width: 90%;">
-                90%
-            </div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <h4>MS PowerPoint</h4>
-        <div class="progress">
-            <div class="progress-bar" style="width: 88%;">
-                88%
-            </div>
-        </div>
-    </div>
-
-</div>
-
-</div>
-<div class="preparemt-div"><br><br>
-  <h1 class="contactheader">Contact</h1><br><br>
-<div class="parent-div">
-  <div class="left-div">
-    <h2>Email :- <a type="email" href="hbnhjn">saifcontact.email@gmail.com</a> </h2><br>
-    <h2>Phone number :- (317) 537-7169 </h2><br>
-    <!-- Content for the left div -->
-    <ul class="social-media-list">
-      <li><a href="https://www.linkedin.com/in/saif-abdul-qadeer" class="linkedin"><i class="fab fa-linkedin fa-bounce" ></i></a></li><br>
-      <li><a href="#" class="github"><i class="fab fa-github fa-bounce"></i></a></li><br>
-      <li><a href="#" class="instagram"><i class="fab fa-instagram fa-bounce"></i></a></li><br>
-      <li><a href="#" class="facebook"><i class="fab fa-facebook fa-bounce"></i></a></li><br>
-      <li><a href="https://discord.gg/6F3UzjhTau" class="discord"><i class="fab fa-discord fa-bounce"></i></a></li><br>
-      <li><a href="#" class="twitter"><i class="fab fa-twitter fa-bounce"></i></a></li><br><br>
-    </ul>    
-  </div>
-  <div class="right-div">
-    <!-- Content for the right div -->
-    <form id="contract-form" action="send_email.php" method="post">
-      <label for="name">Name :</label>
-      <input type="text" id="name" name="name"><br><br>
-      <label for="subject">Subject : </label>
-      <input type="text" id="subject" name="subject"><br><br>
-      <label for="company">Company :</label>
-      <input type="text" id="company" name="company"><br><br>
-    
-      <textarea name="message" id="message" cols="80" rows="7" placeholder="Message..."></textarea>
-      <br><br>
-      <button type="button" id="submit-btn">Submit</button><br><br>
-    </form>    
-  </div>
-</div>
-</div>
-<div class="popup" id="success-popup">
-  <i class="fas fa-check-circle"></i>
-  <p>Submitted</p>
-</div>
-
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
- document.addEventListener("DOMContentLoaded", () => {
+      (function () {
+        "use strict";
+        var reduce =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Query Selectors
-  const menuBtn = document.querySelector('#menu-btn');
-  const nav = document.querySelector('.nav');  
-  const navLinks = document.querySelectorAll('.nav a');
-  const menuToggle = document.querySelector('.menu-toggle');
+        /* year */
+        document.getElementById("yr").textContent = new Date().getFullYear();
 
-  // Nav Link Click Handler
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.forEach(l => l.classList.remove("active")); 
-      link.classList.add("active");
-    });
-  });
+        /* ---- NAV scroll state + progress bar ---- */
+        var nav = document.getElementById("nav");
+        var progress = document.getElementById("progress");
+        function onScroll() {
+          var y = window.scrollY || window.pageYOffset;
+          nav.classList.toggle("scrolled", y > 60);
+          var h = document.documentElement.scrollHeight - window.innerHeight;
+          progress.style.transform = "scaleX(" + (h > 0 ? y / h : 0) + ")";
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
 
-  // Menu Toggle Handler
-  menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-    
-    if(nav.classList.contains('open')) {
-      menuBtn.innerHTML = 'X';
-    } else {
-      menuBtn.innerHTML = '☰';
-    }
-  });
+        /* ---- MOBILE MENU ---- */
+        var burger = document.getElementById("burger");
+        var scrim = document.getElementById("scrim");
+        var drawer = document.getElementById("drawer");
+        function closeMenu() {
+          document.body.classList.remove("menu-open");
+          burger.setAttribute("aria-expanded", "false");
+        }
+        burger.addEventListener("click", function () {
+          var open = document.body.classList.toggle("menu-open");
+          burger.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+        scrim.addEventListener("click", closeMenu);
+        drawer.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", closeMenu);
+        });
 
-  // Sticky Nav
-  window.onscroll = () => {
-    if (window.pageYOffset > 0) {
-      nav.classList.add('sticky');
-    } else {
-      nav.classList.remove('sticky');
-    }
-  };
-    window.onscroll = () => {
-    if (window.pageYOffset > 0) {
-      menu-toggle.classList.add('sticky');
-    } else {
-      menu-toggle.classList.remove('sticky');
-    }
-  };
-  
+        /* ---- REVEAL ON SCROLL ---- */
+        var reveals = document.querySelectorAll(".reveal");
+        if ("IntersectionObserver" in window && !reduce) {
+          var io = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  e.target.classList.add("in");
+                  io.unobserve(e.target);
+                }
+              });
+            },
+            { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+          );
+          reveals.forEach(function (el) {
+            io.observe(el);
+          });
+        } else {
+          reveals.forEach(function (el) {
+            el.classList.add("in");
+          });
+        }
 
-});
+        /* ---- SKILL BARS + count-up ---- */
+        var skillsSection = document.getElementById("skills");
+        function fillBars() {
+          document.querySelectorAll(".bar i").forEach(function (i) {
+            i.style.width = i.getAttribute("data-w") + "%";
+          });
+          document.querySelectorAll(".pct").forEach(function (p) {
+            var target = +p.getAttribute("data-pct"),
+              cur = 0;
+            var step = Math.max(1, Math.round(target / 40));
+            var t = setInterval(function () {
+              cur += step;
+              if (cur >= target) {
+                cur = target;
+                clearInterval(t);
+              }
+              p.textContent = cur + "%";
+            }, 18);
+          });
+        }
+        if ("IntersectionObserver" in window && !reduce) {
+          var sIo = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  fillBars();
+                  sIo.disconnect();
+                }
+              });
+            },
+            { threshold: 0.25 },
+          );
+          sIo.observe(skillsSection);
+        } else {
+          fillBars();
+        }
 
+        /* ---- STAT COUNTERS ---- */
+        function runCount(el) {
+          var target = +el.getAttribute("data-count"),
+            cur = 0;
+          var suffix = el.querySelector("span")
+            ? el.querySelector("span").outerHTML
+            : "";
+          var step = Math.max(1, Math.round(target / 45));
+          var t = setInterval(function () {
+            cur += step;
+            if (cur >= target) {
+              cur = target;
+              clearInterval(t);
+            }
+            el.innerHTML = cur + suffix;
+          }, 22);
+        }
+        var counters = document.querySelectorAll(".num[data-count]");
+        if ("IntersectionObserver" in window && !reduce) {
+          var cIo = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  runCount(e.target);
+                  cIo.unobserve(e.target);
+                }
+              });
+            },
+            { threshold: 0.5 },
+          );
+          counters.forEach(function (c) {
+            cIo.observe(c);
+          });
+        } else {
+          counters.forEach(function (c) {
+            var s = c.querySelector("span");
+            c.innerHTML = c.getAttribute("data-count") + (s ? s.outerHTML : "");
+          });
+        }
+
+        /* ---- SCROLL SPY (active nav link) ---- */
+        var sections = [
+          "about",
+          "experience",
+          "skills",
+          "projects",
+          "certificates",
+          "contact",
+        ];
+        var navAnchors = {};
+        document.querySelectorAll("#navLinks a").forEach(function (a) {
+          var id = a.getAttribute("href").slice(1);
+          navAnchors[id] = a;
+        });
+        if ("IntersectionObserver" in window) {
+          var spy = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  Object.keys(navAnchors).forEach(function (k) {
+                    navAnchors[k].classList.remove("active");
+                  });
+                  var cur = navAnchors[e.target.id];
+                  if (cur) cur.classList.add("active");
+                }
+              });
+            },
+            { rootMargin: "-45% 0px -50% 0px" },
+          );
+          sections.forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el) spy.observe(el);
+          });
+        }
+
+        /* ---- SMOOTH SCROLL for in-page links (stay on page, animate to section) ---- */
+        function setActive(id) {
+          Object.keys(navAnchors).forEach(function (k) {
+            navAnchors[k].classList.remove("active");
+          });
+          if (navAnchors[id]) navAnchors[id].classList.add("active");
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+          a.addEventListener("click", function (e) {
+            var hash = a.getAttribute("href");
+            if (!hash || hash === "#") return;
+            var isHome = hash === "#home";
+            var target = isHome ? document.body : document.querySelector(hash);
+            if (!target) return; /* let unknown anchors behave normally */
+            e.preventDefault();
+            closeMenu(); /* close drawer if open */
+            var navH = nav.offsetHeight + 12;
+            var top = isHome
+              ? 0
+              : target.getBoundingClientRect().top +
+                (window.scrollY || window.pageYOffset) -
+                navH;
+            window.scrollTo({
+              top: Math.max(0, top),
+              behavior: reduce ? "auto" : "smooth",
+            });
+            setActive(hash.slice(1)); /* highlight immediately */
+            if (history.replaceState) history.replaceState(null, "", hash);
+          });
+        });
+
+        /* ---- PARALLAX: hero photo + glows ---- */
+        var ring = document.getElementById("photoRing");
+        var glows = document.querySelectorAll(".hero-glow");
+        if (!reduce) {
+          var ticking = false;
+          window.addEventListener(
+            "scroll",
+            function () {
+              if (ticking) return;
+              ticking = true;
+              requestAnimationFrame(function () {
+                var y = window.scrollY || 0;
+                glows.forEach(function (g, idx) {
+                  g.style.transform =
+                    "translateY(" + y * (idx ? 0.18 : 0.3) + "px)";
+                });
+                if (ring) {
+                  var rect = ring.getBoundingClientRect();
+                  var off =
+                    (rect.top + rect.height / 2 - window.innerHeight / 2) *
+                    -0.05;
+                  ring.style.transform = "translateY(" + off + "px)";
+                }
+                ticking = false;
+              });
+            },
+            { passive: true },
+          );
+        }
+
+        /* ---- CONTACT FORM -> mailto ---- */
+        var sendBtn = document.getElementById("sendBtn");
+        sendBtn.addEventListener("click", function () {
+          var name = (document.getElementById("cName").value || "").trim();
+          var company = (
+            document.getElementById("cCompany").value || ""
+          ).trim();
+          var subject = (
+            document.getElementById("cSubject").value || "Portfolio enquiry"
+          ).trim();
+          var msg = (document.getElementById("cMsg").value || "").trim();
+          var body = "Name: " + name + "\nCompany: " + company + "\n\n" + msg;
+          window.location.href =
+            "mailto:saifabdulqadeer@gmail.com" +
+            "?subject=" +
+            encodeURIComponent(subject) +
+            "&body=" +
+            encodeURIComponent(body);
+        });
+
+        /* ---- HERO SCATTER FIELD (canvas) ---- */
+        var canvas = document.getElementById("scatter");
+        if (canvas && canvas.getContext) {
+          var ctx = canvas.getContext("2d");
+          var pts = [],
+            W,
+            H,
+            raf,
+            mouse = { x: -999, y: -999 };
+          function size() {
+            W = canvas.width =
+              canvas.offsetWidth * (window.devicePixelRatio || 1);
+            H = canvas.height =
+              canvas.offsetHeight * (window.devicePixelRatio || 1);
+          }
+          function seed() {
+            pts = [];
+            var density = Math.min(
+              90,
+              Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 13000),
+            );
+            for (var i = 0; i < density; i++) {
+              pts.push({
+                x: Math.random() * W,
+                y: Math.random() * H,
+                vx:
+                  (Math.random() - 0.5) * 0.18 * (window.devicePixelRatio || 1),
+                vy:
+                  (Math.random() - 0.5) * 0.18 * (window.devicePixelRatio || 1),
+                r: (Math.random() * 1.6 + 0.6) * (window.devicePixelRatio || 1),
+              });
+            }
+          }
+          function draw() {
+            ctx.clearRect(0, 0, W, H);
+            var dpr = window.devicePixelRatio || 1;
+            var maxD = 130 * dpr;
+            for (var i = 0; i < pts.length; i++) {
+              var p = pts[i];
+              p.x += p.vx;
+              p.y += p.vy;
+              if (p.x < 0 || p.x > W) p.vx *= -1;
+              if (p.y < 0 || p.y > H) p.vy *= -1;
+              for (var j = i + 1; j < pts.length; j++) {
+                var q = pts[j],
+                  dx = p.x - q.x,
+                  dy = p.y - q.y,
+                  d = Math.sqrt(dx * dx + dy * dy);
+                if (d < maxD) {
+                  ctx.strokeStyle =
+                    "rgba(25,195,166," + 0.16 * (1 - d / maxD) + ")";
+                  ctx.lineWidth = 1;
+                  ctx.beginPath();
+                  ctx.moveTo(p.x, p.y);
+                  ctx.lineTo(q.x, q.y);
+                  ctx.stroke();
+                }
+              }
+              var mdx = p.x - mouse.x,
+                mdy = p.y - mouse.y,
+                md = Math.sqrt(mdx * mdx + mdy * mdy);
+              var lit = md < 150 * dpr;
+              ctx.beginPath();
+              ctx.fillStyle = lit
+                ? "rgba(244,160,63,.9)"
+                : "rgba(160,190,230,.5)";
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            raf = requestAnimationFrame(draw);
+          }
+          function start() {
+            size();
+            seed();
+            if (!reduce) {
+              cancelAnimationFrame(raf);
+              draw();
+            } else {
+              draw();
+              cancelAnimationFrame(raf);
+            }
+          }
+          canvas.parentElement.addEventListener("mousemove", function (e) {
+            var rect = canvas.getBoundingClientRect(),
+              dpr = window.devicePixelRatio || 1;
+            mouse.x = (e.clientX - rect.left) * dpr;
+            mouse.y = (e.clientY - rect.top) * dpr;
+          });
+          canvas.parentElement.addEventListener("mouseleave", function () {
+            mouse.x = -999;
+            mouse.y = -999;
+          });
+          var rt;
+          window.addEventListener("resize", function () {
+            clearTimeout(rt);
+            rt = setTimeout(start, 200);
+          });
+          start();
+        }
+      })();
     </script>
-    <script src="script.js">
-
-    </script>
-
-    </body>
-
-      
-      
-     
+  </body>
 </html>
