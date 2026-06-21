@@ -1063,6 +1063,144 @@
         margin-top: 14px;
         text-align: center;
       }
+      .h-captcha {
+        margin: 4px 0 18px;
+        min-height: 78px;
+      }
+
+      /* ===== TOAST / NOTIFICATION ===== */
+      .toast-wrap {
+        position: fixed;
+        top: 84px;
+        right: 24px;
+        z-index: 300;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: min(360px, calc(100vw - 32px));
+        pointer-events: none;
+      }
+      .toast {
+        pointer-events: auto;
+        position: relative;
+        overflow: hidden;
+        background: var(--paper-2);
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: 0 18px 50px -22px rgba(11, 20, 38, 0.45);
+        padding: 16px 14px 16px 18px;
+        display: flex;
+        gap: 13px;
+        align-items: flex-start;
+        transform: translateX(120%);
+        opacity: 0;
+        transition:
+          transform 0.45s cubic-bezier(0.2, 0.9, 0.2, 1),
+          opacity 0.45s;
+      }
+      .toast.show {
+        transform: none;
+        opacity: 1;
+      }
+      .toast.hide {
+        transform: translateX(120%);
+        opacity: 0;
+      }
+      .toast::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--teal);
+      }
+      .toast.error::before {
+        background: var(--amber-deep);
+      }
+      .toast .t-ic {
+        flex: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(25, 195, 166, 0.12);
+        color: var(--teal-deep);
+      }
+      .toast.error .t-ic {
+        background: rgba(244, 160, 63, 0.14);
+        color: var(--amber-deep);
+      }
+      .toast .t-body {
+        flex: 1;
+        min-width: 0;
+      }
+      .toast .t-title {
+        font-family: var(--f-display);
+        font-weight: 600;
+        font-size: 0.98rem;
+        line-height: 1.2;
+      }
+      .toast .t-msg {
+        color: var(--muted);
+        font-size: 0.86rem;
+        margin-top: 3px;
+      }
+      .toast .t-close {
+        flex: none;
+        background: none;
+        border: 0;
+        color: var(--muted);
+        cursor: pointer;
+        font-size: 1.2rem;
+        line-height: 1;
+        padding: 0 4px;
+        border-radius: 6px;
+        transition: 0.2s;
+      }
+      .toast .t-close:hover {
+        color: var(--text);
+        background: var(--paper);
+      }
+      .toast .t-bar {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        background: var(--teal);
+        transform-origin: 0 50%;
+        animation: toastbar 5s linear forwards;
+      }
+      .toast.error .t-bar {
+        background: var(--amber-deep);
+      }
+      @keyframes toastbar {
+        from {
+          transform: scaleX(1);
+        }
+        to {
+          transform: scaleX(0);
+        }
+      }
+      @media (max-width: 560px) {
+        .toast-wrap {
+          top: 72px;
+          right: 50%;
+          transform: translateX(50%);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .toast {
+          transition: opacity 0.2s;
+        }
+        .toast .t-bar {
+          animation: none;
+        }
+      }
 
       /* ============ FOOTER ============ */
       .footer {
@@ -1207,7 +1345,6 @@
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#certificates">Certificates</a>
-          <a href="Saif@Resume.html">Resume</a>
           <a href="#contact" class="nav-cta">Get in touch</a>
         </nav>
         <button
@@ -1229,7 +1366,6 @@
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#certificates">Certificates</a>
-      <a href="Saif@Resume.html">Resume</a>
       <a href="#contact">Get in touch</a>
     </aside>
 
@@ -1851,15 +1987,51 @@
             </div>
           </div>
 
-          <div class="form reveal d3">
+          <form class="form reveal d3" id="contactForm">
+            <!-- Web3Forms: replace with your own access key -->
+            <input
+              type="hidden"
+              name="access_key"
+              value="9bb0f711-320d-4406-8850-f3f275cf1778"
+            />
+            <input
+              type="hidden"
+              name="from_name"
+              value="Portfolio Contact Form"
+            />
+            <input
+              type="checkbox"
+              name="botcheck"
+              style="display: none"
+              tabindex="-1"
+              autocomplete="off"
+            />
+
             <div class="field">
               <label for="cName">Name</label
-              ><input id="cName" type="text" placeholder="Your name" />
+              ><input
+                id="cName"
+                name="name"
+                type="text"
+                placeholder="Your name"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="cEmail">Email</label
+              ><input
+                id="cEmail"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
             </div>
             <div class="field">
               <label for="cCompany">Company / context</label
               ><input
                 id="cCompany"
+                name="company"
                 type="text"
                 placeholder="Where you're reaching out from"
               />
@@ -1868,6 +2040,7 @@
               <label for="cSubject">Subject</label
               ><input
                 id="cSubject"
+                name="subject"
                 type="text"
                 placeholder="What's this about?"
               />
@@ -1876,11 +2049,17 @@
               <label for="cMsg">Message</label
               ><textarea
                 id="cMsg"
+                name="message"
                 rows="4"
                 placeholder="A few lines about the role or project"
+                required
               ></textarea>
             </div>
-            <button class="btn btn-primary" id="sendBtn" type="button">
+
+            <!-- hCaptcha (Web3Forms client script renders this automatically) -->
+            <div class="h-captcha" data-captcha="true"></div>
+
+            <button class="btn btn-primary" id="sendBtn" type="submit">
               Send message
               <svg
                 width="16"
@@ -1893,8 +2072,8 @@
                 <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z" />
               </svg>
             </button>
-            <p class="form-note">Opens in your email app, addressed to Saif.</p>
-          </div>
+            <p class="form-note">I'll get back to you as soon as I can.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -2211,25 +2390,104 @@
           );
         }
 
-        /* ---- CONTACT FORM -> mailto ---- */
-        var sendBtn = document.getElementById("sendBtn");
-        sendBtn.addEventListener("click", function () {
-          var name = (document.getElementById("cName").value || "").trim();
-          var company = (
-            document.getElementById("cCompany").value || ""
-          ).trim();
-          var subject = (
-            document.getElementById("cSubject").value || "Portfolio enquiry"
-          ).trim();
-          var msg = (document.getElementById("cMsg").value || "").trim();
-          var body = "Name: " + name + "\nCompany: " + company + "\n\n" + msg;
-          window.location.href =
-            "mailto:saifabdulqadeer@gmail.com" +
-            "?subject=" +
-            encodeURIComponent(subject) +
-            "&body=" +
-            encodeURIComponent(body);
-        });
+        /* ---- TOAST / NOTIFICATION ---- */
+        function showToast(type, title, msg) {
+          var wrap = document.getElementById("toastWrap");
+          if (!wrap) {
+            wrap = document.createElement("div");
+            wrap.id = "toastWrap";
+            wrap.className = "toast-wrap";
+            document.body.appendChild(wrap);
+          }
+          var t = document.createElement("div");
+          t.className = "toast" + (type === "error" ? " error" : "");
+          var icon =
+            type === "error"
+              ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>'
+              : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>';
+          t.innerHTML =
+            '<div class="t-ic">' +
+            icon +
+            "</div>" +
+            '<div class="t-body"><div class="t-title"></div><div class="t-msg"></div></div>' +
+            '<button class="t-close" aria-label="Dismiss">&times;</button><div class="t-bar"></div>';
+          t.querySelector(".t-title").textContent = title;
+          t.querySelector(".t-msg").textContent = msg;
+          wrap.appendChild(t);
+          requestAnimationFrame(function () {
+            t.classList.add("show");
+          });
+          function remove() {
+            clearTimeout(timer);
+            t.classList.remove("show");
+            t.classList.add("hide");
+            setTimeout(function () {
+              t.remove();
+            }, 460);
+          }
+          var timer = setTimeout(remove, 5000);
+          t.querySelector(".t-close").addEventListener("click", remove);
+        }
+
+        /* ---- CONTACT FORM -> Web3Forms (with hCaptcha) ---- */
+        var contactForm = document.getElementById("contactForm");
+        if (contactForm) {
+          contactForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            /* require a solved hCaptcha before sending */
+            var cap = contactForm.querySelector('[name="h-captcha-response"]');
+            if (!cap || !cap.value) {
+              showToast(
+                "error",
+                "One more step",
+                "Please complete the captcha before sending.",
+              );
+              return;
+            }
+
+            var btn = contactForm.querySelector('button[type="submit"]');
+            var original = btn.innerHTML;
+            btn.disabled = true;
+            btn.textContent = "Sending…";
+            try {
+              var res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { Accept: "application/json" },
+                body: new FormData(contactForm),
+              });
+              var json = await res.json();
+              if (json.success) {
+                showToast(
+                  "success",
+                  "Message sent!",
+                  "Thanks for reaching out — I'll reply soon.",
+                );
+                contactForm.reset();
+                if (window.hcaptcha) {
+                  try {
+                    window.hcaptcha.reset();
+                  } catch (_) {}
+                }
+              } else {
+                showToast(
+                  "error",
+                  "Couldn't send",
+                  json.message || "Please try again in a moment.",
+                );
+              }
+            } catch (err) {
+              showToast(
+                "error",
+                "Network error",
+                "Check your connection and try again.",
+              );
+            } finally {
+              btn.disabled = false;
+              btn.innerHTML = original;
+            }
+          });
+        }
 
         /* ---- HERO SCATTER FIELD (canvas) ---- */
         var canvas = document.getElementById("scatter");
@@ -2331,6 +2589,34 @@
           start();
         }
       })();
+    </script>
+
+    <!-- Toast container -->
+    <div id="toastWrap" class="toast-wrap"></div>
+
+    <!-- Web3Forms client script: renders the hCaptcha widget automatically -->
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+    <!-- Botpress Webchat -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+    <script>
+      window.botpress.init({
+        botId: "YOUR_BOT_ID", // see note below
+        clientId: "YOUR_CLIENT_ID", // see note below
+        configuration: {
+          botName: "Saif's Assistant",
+          botDescription:
+            "Ask me about Saif's projects, skills, and experience.",
+          botAvatar:
+            "https://sabdulq.github.io/Saif-portfolio/images/Saif-removebg-preview.png",
+          composerPlaceholder: "Ask about my work…",
+          color: "#19C3A6" /* site teal — themes the chat + bubble */,
+          variant: "solid",
+          headerVariant: "solid",
+          themeMode: "light" /* matches the light content sections */,
+          fontFamily: "inter" /* same family as the site body text */,
+          radius: 2 /* rounded corners (0.5–4) to match the cards */,
+        },
+      });
     </script>
   </body>
 </html>
